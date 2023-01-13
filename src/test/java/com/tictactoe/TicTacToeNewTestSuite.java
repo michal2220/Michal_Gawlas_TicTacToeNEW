@@ -484,6 +484,20 @@ public class TicTacToeNewTestSuite {
 
         }*/
 
+        @Test
+        void exceptionHorizontalNumberValueDoesNotThrowTest() {
+            //Given
+            Input input = new Input();
+            ForScanning forScanningMock = mock(ForScanning.class);
+            InputArraySize inputArraySizeMock = mock(InputArraySize.class);
+
+            when(inputArraySizeMock.getArraySize()).thenReturn(3);
+            when(forScanningMock.scan()).thenReturn(2);
+            inputArraySizeMock.setForScanning(forScanningMock);
+
+            //Then
+            Assertions.assertDoesNotThrow(()->input.verticalNumberValue(inputArraySizeMock));
+        }
 
     }
 }
