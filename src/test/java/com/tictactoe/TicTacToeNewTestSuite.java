@@ -460,7 +460,7 @@ public class TicTacToeNewTestSuite {
             inputArraySize.setForScanning(forScanningMock);
 
             //Then
-            Assertions.assertDoesNotThrow(()->inputArraySize.enterArraySize());
+            Assertions.assertDoesNotThrow(() -> inputArraySize.enterArraySize());
         }
 
 
@@ -487,17 +487,36 @@ public class TicTacToeNewTestSuite {
         @Test
         void exceptionHorizontalNumberValueDoesNotThrowTest() {
             //Given
-            Input input = new Input();
+
+
             ForScanning forScanningMock = mock(ForScanning.class);
             InputArraySize inputArraySizeMock = mock(InputArraySize.class);
+            Input input = new Input();
 
-            when(inputArraySizeMock.getArraySize()).thenReturn(3);
+
+            input.setForScanning(forScanningMock);
+            when(inputArraySizeMock.getArraySize()).thenReturn(10);
             when(forScanningMock.scan()).thenReturn(2);
-            inputArraySizeMock.setForScanning(forScanningMock);
-
             //Then
-            Assertions.assertDoesNotThrow(()->input.verticalNumberValue(inputArraySizeMock));
+            Assertions.assertDoesNotThrow(() -> input.verticalNumberValue(inputArraySizeMock));
         }
 
+        @Test
+        void exceptionVerticalNumberValueDoesNotThrowTest() {
+            //Given
+
+
+            ForScanning forScanningMock = mock(ForScanning.class);
+            InputArraySize inputArraySizeMock = mock(InputArraySize.class);
+            Input input = new Input();
+
+
+            input.setForScanning(forScanningMock);
+            when(inputArraySizeMock.getArraySize()).thenReturn(10);
+            when(forScanningMock.scan()).thenReturn(2);
+            //Then
+            Assertions.assertDoesNotThrow(() -> input.horizontalNumberValue(inputArraySizeMock));
+        }
     }
 }
+

@@ -9,6 +9,11 @@ public class Input {
     SimpleText simpleText = new SimpleText();
     Scanner scan = new Scanner(System.in);
     ForScanning forScanning = new ForScanning();
+    InputArraySize inputArraySize = new InputArraySize();
+
+    public void setForScanning(ForScanning forScanning) {
+        this.forScanning = forScanning;
+    }
 
     public void whichStartingFigure(){
 
@@ -51,7 +56,6 @@ public class Input {
 
         int arraySize=inputArraySize.getArraySize();
         simpleText.horizontalPosition();
-        inputArraySize.setForScanning(forScanning);
         int horizontal = forScanning.scan();
 
         while (horizontal >= arraySize || horizontal < 0) {
@@ -67,7 +71,6 @@ public class Input {
 
         int arraySize=inputArraySize.getArraySize();
         simpleText.verticalPosition();
-        inputArraySize.setForScanning(forScanning);
         int vertical = forScanning.scan();
 
         while (vertical >= arraySize || vertical < 0) {
@@ -77,5 +80,7 @@ public class Input {
         }
         return vertical;
     }
+
+
 
 }

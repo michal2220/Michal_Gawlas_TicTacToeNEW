@@ -9,11 +9,12 @@ public class TicTacToeApplication {
 
 
         CreatingArrays creatingArrays = new CreatingArrays();
+        InputArraySize inputArraySize = new InputArraySize();
         Input input = new Input();
         Game game = new Game();
         WinningChecker winningChecker = new WinningChecker();
         SimpleText simpleText = new SimpleText();
-        InputArraySize inputArraySize = new InputArraySize();
+
 
         String opponent = input.computerOrPerson();
         if (opponent.equals("computer") || opponent.equals("COMPUTER")) {

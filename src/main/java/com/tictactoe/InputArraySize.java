@@ -25,10 +25,13 @@ public class InputArraySize {
         return arraySize;
     }
 
+    public void setForScanning(ForScanning forScanning) {
+        this.forScanning = forScanning;
+    }
+
     public void enterArraySize() {
 
         simpleText.arraySizeRequest();
-        setForScanning(forScanning);
         arraySize = forScanning.scan();
 
         while (arraySize != 3 && arraySize != 10) {
@@ -39,11 +42,8 @@ public class InputArraySize {
     }
 
     public int getArraySize() {
-        return arraySize;
-    }
 
-    public void setForScanning(ForScanning forScanning) {
-        this.forScanning = forScanning;
+        return arraySize;
     }
 
     public void wrongInputForArray(){
