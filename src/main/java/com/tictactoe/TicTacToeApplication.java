@@ -22,6 +22,7 @@ public class TicTacToeApplication {
             try {
                 inputArraySize.enterArraySize();
             } catch (Exception e) {
+                System.out.println("Error " + e);
                 inputArraySize.wrongInputForArray();
             }
 
@@ -35,6 +36,7 @@ public class TicTacToeApplication {
             try {
                 inputArraySize.enterArraySize();
             } catch (Exception e) {
+                System.out.println("Error " + e);
                 inputArraySize.wrongInputForArray();
             }
 

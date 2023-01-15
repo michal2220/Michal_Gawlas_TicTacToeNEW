@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.InputMismatchException;
 import java.util.Objects;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -464,42 +465,50 @@ public class TicTacToeNewTestSuite {
         }
 
 
-           /*     @Test
+        @Test
         void exceptionInInputDoesThrowsExceptionTest() {
             //Given
             ForScanning forScanningMock = mock(ForScanning.class);
-            Input input = new Input();
             InputArraySize inputArraySize = new InputArraySize();
 
-
-            //Nie wiem jak mogę "wstrzyknąć" mu stringa czy cokolwiek innego niż Integer
-            when(forScanningMock.scan()).thenReturn(3);
-
-
+            when(forScanningMock.scan()).thenThrow(new IllegalArgumentException("a"));
             inputArraySize.setForScanning(forScanningMock);
-
 
             //Then
             Assertions.assertThrows(Exception.class, () -> inputArraySize.enterArraySize());
 
-        }*/
+        }
 
         @Test
         void exceptionHorizontalNumberValueDoesNotThrowTest() {
             //Given
-
-
             ForScanning forScanningMock = mock(ForScanning.class);
             InputArraySize inputArraySizeMock = mock(InputArraySize.class);
             Input input = new Input();
 
-
             input.setForScanning(forScanningMock);
             when(inputArraySizeMock.getArraySize()).thenReturn(10);
             when(forScanningMock.scan()).thenReturn(2);
+
             //Then
             Assertions.assertDoesNotThrow(() -> input.verticalNumberValue(inputArraySizeMock));
         }
+
+        @Test
+        void exceptionHorizontalNumberValueThrowsTest() {
+            //Given
+            ForScanning forScanningMock = mock(ForScanning.class);
+            InputArraySize inputArraySizeMock = mock(InputArraySize.class);
+            Input input = new Input();
+
+            input.setForScanning(forScanningMock);
+            when(inputArraySizeMock.getArraySize()).thenReturn(10);
+            when(forScanningMock.scan()).thenThrow(new IllegalArgumentException("a"));
+
+            //Then
+            Assertions.assertThrows(Exception.class, () -> input.verticalNumberValue(inputArraySizeMock));
+        }
+
 
         @Test
         void exceptionVerticalNumberValueDoesNotThrowTest() {
@@ -516,6 +525,21 @@ public class TicTacToeNewTestSuite {
             when(forScanningMock.scan()).thenReturn(2);
             //Then
             Assertions.assertDoesNotThrow(() -> input.horizontalNumberValue(inputArraySizeMock));
+        }
+
+        @Test
+        void exceptionVerticalNumberValueThrowsTest() {
+            //Given
+            ForScanning forScanningMock = mock(ForScanning.class);
+            InputArraySize inputArraySizeMock = mock(InputArraySize.class);
+            Input input = new Input();
+
+            input.setForScanning(forScanningMock);
+            when(inputArraySizeMock.getArraySize()).thenReturn(10);
+            when(forScanningMock.scan()).thenThrow(new IllegalArgumentException("a"));
+
+            //Then
+            Assertions.assertThrows(Exception.class, () -> input.horizontalNumberValue(inputArraySizeMock));
         }
     }
 }

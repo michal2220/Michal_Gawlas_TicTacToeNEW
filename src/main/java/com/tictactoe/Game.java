@@ -77,7 +77,7 @@ public class Game {
                     askUserForANumber =false;
                 }
             } catch (Exception e) {
-                System.out.println("Wrong data for O");
+                System.out.println("Wrong data for O, exception: " + e);
                 askUserForANumber =true;
             }
         }
@@ -96,7 +96,7 @@ public class Game {
                     askUserForANumber=false;
                 }
             } catch (Exception e) {
-                System.out.println("Wrong data for X");
+                System.out.println("Wrong data for X, exception: " + e);
                 askUserForANumber = true;
             }
         }

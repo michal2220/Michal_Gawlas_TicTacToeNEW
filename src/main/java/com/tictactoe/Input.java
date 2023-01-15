@@ -1,5 +1,6 @@
 package com.tictactoe;
 
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -67,7 +68,7 @@ public class Input {
         return horizontal;
     }
 
-    public int verticalNumberValue(InputArraySize inputArraySize) {
+    public int verticalNumberValue(InputArraySize inputArraySize) throws InputMismatchException {
 
         int arraySize=inputArraySize.getArraySize();
         simpleText.verticalPosition();
